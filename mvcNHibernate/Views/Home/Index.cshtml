@@ -1,0 +1,22 @@
+﻿@model List<mvcNHibernate.Models.Categories>
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<h2>Index</h2>
+
+    <h3>Products</h3>
+    <ul>
+        @foreach (var category in Model)
+        {
+            <li>@category.CategoryName</li>
+            <ul>
+                @foreach (var product in category.Products)
+                {
+                    <li>@string.Format("{0} ${1}", product.Name, product.Price) </li>
+                }
+            </ul>
+        }
+    </ul>
